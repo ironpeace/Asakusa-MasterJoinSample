@@ -1,0 +1,15 @@
+digraph {
+    "d0f50788-4a3a-41f1-80e9-946d91ca619b" [shape=invhouse, label="ItemMaster"];
+    "af3f8f4d-4657-4790-aa05-b7b216d316a0" [shape=invhouse, label="SalesDetail2"];
+    "8a2ab3ec-3710-4099-b322-55e8b36553a9" [shape=invhouse, label="ErrorRecord"];
+    "3b8d2844-2b77-4830-afb9-00c12f8163e9" [shape=box, label="@Restructure\nrestructure"];
+    "97b9361f-a77d-4ca3-9081-49756bc56d33" [shape=box, label="@Project\nproject"];
+    "a565fa61-f3cc-4785-aae6-4ba78ea06045" [shape=box, label="@MasterJoin\nJoinOperator.joinedData"];
+    "942fdf3b-2ae3-4f91-8a41-3fc21c917339" [shape=invhouse, label="SalesDetail"];
+    "d0f50788-4a3a-41f1-80e9-946d91ca619b" -> "a565fa61-f3cc-4785-aae6-4ba78ea06045" [label="port>master"];
+    "3b8d2844-2b77-4830-afb9-00c12f8163e9" -> "8a2ab3ec-3710-4099-b322-55e8b36553a9" [label="out>port"];
+    "97b9361f-a77d-4ca3-9081-49756bc56d33" -> "af3f8f4d-4657-4790-aa05-b7b216d316a0" [label="out>port"];
+    "a565fa61-f3cc-4785-aae6-4ba78ea06045" -> "97b9361f-a77d-4ca3-9081-49756bc56d33" [label="joined>in"];
+    "a565fa61-f3cc-4785-aae6-4ba78ea06045" -> "3b8d2844-2b77-4830-afb9-00c12f8163e9" [label="missed>in"];
+    "942fdf3b-2ae3-4f91-8a41-3fc21c917339" -> "a565fa61-f3cc-4785-aae6-4ba78ea06045" [label="port>detail"];
+}

@@ -1,0 +1,8 @@
+digraph {
+    rankdir = LR;
+    "18bc3455-5034-431f-b1c1-9114407c9c46" [shape=box, label="Batch\nMainBatch"];
+    "33b8c435-92f3-43d3-b78e-cbb01b03fc20" [shape=box, label="JobFlow\nMainJobFlow"];
+    "eedbf321-4f51-4fce-b82b-b2b7154f0d2b" [shape=box, label="MasterJoin\nJoinOperator#joinedData"];
+    "33b8c435-92f3-43d3-b78e-cbb01b03fc20" -> "eedbf321-4f51-4fce-b82b-b2b7154f0d2b";
+    "18bc3455-5034-431f-b1c1-9114407c9c46" -> "33b8c435-92f3-43d3-b78e-cbb01b03fc20";
+}

@@ -1,0 +1,23 @@
+digraph {
+    "71464d4b-0b78-4f02-83bc-e4760a36a235" [shape=invhouse, label="SalesDetail2"];
+    "16976fa3-a4b0-49a8-a5cb-ea14e10e10ec" [shape=invhouse, label="SalesDetail"];
+    "fc8f7efe-02b4-43c7-955a-7d49720c1a01" [shape=invhouse, label="ErrorRecord"];
+    "32198da3-09e4-4405-bca5-ea9f93b4e6ac" [shape=invhouse, label="ItemMaster"];
+    subgraph "cluster_72ea2df1-190d-484c-99d1-fb77ee3bc5fa" {
+        label = "stage0001";
+        style = bold;
+        "1d22123a-46cf-4fcf-8634-4b07db146e2b" [shape=point];
+        "08a0e74e-ec21-4a21-89c6-f418ab339551" [shape=point];
+        "67a7a568-20db-4499-9019-e47589679bb9" [shape=box, label="@MasterJoin\nJoinOperator.joinedData"];
+        "5ed67ad4-6068-44ab-80bc-0f62a3e3dbfe" [shape=box, label="@Project\nproject"];
+        "e45606bc-c853-4378-a6d2-13e3012190f6" [shape=box, label="@Restructure\nrestructure"];
+    }
+    "32198da3-09e4-4405-bca5-ea9f93b4e6ac" -> "08a0e74e-ec21-4a21-89c6-f418ab339551" [label="port>in"];
+    "16976fa3-a4b0-49a8-a5cb-ea14e10e10ec" -> "1d22123a-46cf-4fcf-8634-4b07db146e2b" [label="port>in"];
+    "08a0e74e-ec21-4a21-89c6-f418ab339551" -> "67a7a568-20db-4499-9019-e47589679bb9" [label="out>master"];
+    "1d22123a-46cf-4fcf-8634-4b07db146e2b" -> "67a7a568-20db-4499-9019-e47589679bb9" [label="out>detail"];
+    "e45606bc-c853-4378-a6d2-13e3012190f6" -> "fc8f7efe-02b4-43c7-955a-7d49720c1a01" [label="out>port"];
+    "5ed67ad4-6068-44ab-80bc-0f62a3e3dbfe" -> "71464d4b-0b78-4f02-83bc-e4760a36a235" [label="out>port"];
+    "67a7a568-20db-4499-9019-e47589679bb9" -> "5ed67ad4-6068-44ab-80bc-0f62a3e3dbfe" [label="joined>in"];
+    "67a7a568-20db-4499-9019-e47589679bb9" -> "e45606bc-c853-4378-a6d2-13e3012190f6" [label="missed>in"];
+}

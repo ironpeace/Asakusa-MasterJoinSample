@@ -1,0 +1,15 @@
+digraph {
+    "958dca6e-20fe-4f72-8736-28f49bd93381" [shape=box, label="@MasterJoin\nJoinOperator.joinedData"];
+    "81b32520-46d9-42b5-913d-6a0e98de2d94" [shape=invhouse, label="ItemMaster"];
+    "1353da20-09a2-40c3-9b69-98f01a0817c4" [shape=invhouse, label="SalesDetail"];
+    "3436b7f3-7bc6-4626-a6ea-e1039dc2b773" [shape=box, label="@Project\nproject"];
+    "7b5dca94-a93e-42e4-a73a-40d97e164241" [shape=invhouse, label="ErrorRecord"];
+    "e0f826d8-adf4-4e30-88d4-d8439c8921c6" [shape=box, label="@Restructure\nrestructure"];
+    "59629e7d-324e-4da0-9604-ba10c005d953" [shape=invhouse, label="SalesDetail2"];
+    "958dca6e-20fe-4f72-8736-28f49bd93381" -> "3436b7f3-7bc6-4626-a6ea-e1039dc2b773" [label="joined>in"];
+    "958dca6e-20fe-4f72-8736-28f49bd93381" -> "e0f826d8-adf4-4e30-88d4-d8439c8921c6" [label="missed>in"];
+    "81b32520-46d9-42b5-913d-6a0e98de2d94" -> "958dca6e-20fe-4f72-8736-28f49bd93381" [label="port>master"];
+    "1353da20-09a2-40c3-9b69-98f01a0817c4" -> "958dca6e-20fe-4f72-8736-28f49bd93381" [label="port>detail"];
+    "3436b7f3-7bc6-4626-a6ea-e1039dc2b773" -> "59629e7d-324e-4da0-9604-ba10c005d953" [label="out>port"];
+    "e0f826d8-adf4-4e30-88d4-d8439c8921c6" -> "7b5dca94-a93e-42e4-a73a-40d97e164241" [label="out>port"];
+}

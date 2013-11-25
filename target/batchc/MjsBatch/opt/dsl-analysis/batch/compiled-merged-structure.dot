@@ -1,0 +1,26 @@
+digraph {
+    rankdir = LR;
+    "b4a57356-f20c-4b29-a9f1-2add3a52cc7f" [shape=box, label="Batch\nMjsBatch"];
+    "cfc27b13-383c-4ebd-beda-d34cd3d3d01d" [shape=box, label="JobFlow\nMainJobFlow"];
+    "f1f251cb-9f08-481a-bda4-602dd3e6fbe2" [shape=box, label="Stage\nteppeistudio.batchapp.mjsBatch.mainJobFlow.stage0001.StageClient"];
+    "06a51eb6-c8cd-45b0-a2af-b370cdae572d" [shape=box, label="Mapper\nteppeistudio.batchapp.mjsBatch.mainJobFlow.stage0001.StageMapper1"];
+    "f1f251cb-9f08-481a-bda4-602dd3e6fbe2" -> "06a51eb6-c8cd-45b0-a2af-b370cdae572d";
+    "be789805-debb-429f-8449-786977ba313b" [shape=box, label="Fragment\nteppeistudio.batchapp.mjsBatch.mainJobFlow.stage0001.MapFragment1"];
+    "06a51eb6-c8cd-45b0-a2af-b370cdae572d" -> "be789805-debb-429f-8449-786977ba313b";
+    "3551f31d-b603-43a0-8442-1600d754b61e" [shape=box, label="Mapper\nteppeistudio.batchapp.mjsBatch.mainJobFlow.stage0001.StageMapper2"];
+    "f1f251cb-9f08-481a-bda4-602dd3e6fbe2" -> "3551f31d-b603-43a0-8442-1600d754b61e";
+    "eb9a7138-0b46-4896-92d2-be1d4cfbdfb2" [shape=box, label="Fragment\nteppeistudio.batchapp.mjsBatch.mainJobFlow.stage0001.MapFragment2"];
+    "3551f31d-b603-43a0-8442-1600d754b61e" -> "eb9a7138-0b46-4896-92d2-be1d4cfbdfb2";
+    "7072154f-d597-4a75-8247-51d2eeacf40b" [shape=box, label="Reducer\nteppeistudio.batchapp.mjsBatch.mainJobFlow.stage0001.StageReducer"];
+    "f1f251cb-9f08-481a-bda4-602dd3e6fbe2" -> "7072154f-d597-4a75-8247-51d2eeacf40b";
+    "e786eb65-5be7-43fd-aec6-71c6744d07d3" [shape=box, label="Fragment\nteppeistudio.batchapp.mjsBatch.mainJobFlow.stage0001.ReduceFragment3"];
+    "cb6ae26b-7d3e-45e1-8798-c0f8396a42a3" [shape=box, label="MasterJoin\nJoinOperator#joinedData"];
+    "e786eb65-5be7-43fd-aec6-71c6744d07d3" -> "cb6ae26b-7d3e-45e1-8798-c0f8396a42a3";
+    "7072154f-d597-4a75-8247-51d2eeacf40b" -> "e786eb65-5be7-43fd-aec6-71c6744d07d3";
+    "ed4f9fec-7d87-4e7f-9a45-3f5ad9505c5c" [shape=box, label="Fragment\nteppeistudio.batchapp.mjsBatch.mainJobFlow.stage0001.MapFragment5"];
+    "7072154f-d597-4a75-8247-51d2eeacf40b" -> "ed4f9fec-7d87-4e7f-9a45-3f5ad9505c5c";
+    "b6446cf5-d277-4cdf-aeac-a13cce2ee83b" [shape=box, label="Fragment\nteppeistudio.batchapp.mjsBatch.mainJobFlow.stage0001.MapFragment4"];
+    "7072154f-d597-4a75-8247-51d2eeacf40b" -> "b6446cf5-d277-4cdf-aeac-a13cce2ee83b";
+    "cfc27b13-383c-4ebd-beda-d34cd3d3d01d" -> "f1f251cb-9f08-481a-bda4-602dd3e6fbe2";
+    "b4a57356-f20c-4b29-a9f1-2add3a52cc7f" -> "cfc27b13-383c-4ebd-beda-d34cd3d3d01d";
+}

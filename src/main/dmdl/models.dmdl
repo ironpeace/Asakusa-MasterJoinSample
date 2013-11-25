@@ -40,6 +40,21 @@ joined joined_sales_detail = item_master -> {
     sales_number -> sales_number;
 } % item_id;
 
+/* 
+//３つのモデル結合はできない。
+joined joined_sales_detail = item_master -> {
+	item_id -> item_id;
+	item_name -> item_name;
+} % item_id + sales_detail -> {
+	sales_id -> sales_id;
+	item_id -> item_id;
+    sales_number -> sales_number;
+} % item_id + item_category -> {
+	item_id -> item_id;
+	category_name -> category_name;
+} % item_id;
+*/
+
 
 "売上明細２"
 @directio.csv(
@@ -61,4 +76,32 @@ sales_detail2 = {
     "売上数"
     @directio.csv.field(name = "売上数")
     sales_number : INT;
+};
+
+"商品カテゴリ"
+@directio.csv(
+    has_header = TRUE
+)
+item_category = {
+	"商品ID"
+    @directio.csv.field(name = "商品ID")
+	item_id : INT;
+
+	"商品カテゴリ"
+    @directio.csv.field(name = "商品カテゴリ")
+	category_name : TEXT;
+};
+
+"エラーレコード"
+@directio.csv(
+    has_header = TRUE
+)
+error_record = {
+	"明細ID"
+    @directio.csv.field(name = "明細ID")
+	sales_id : INT;
+
+	"商品ID"
+    @directio.csv.field(name = "商品ID")
+	item_id : INT;
 };

@@ -1,0 +1,29 @@
+digraph {
+    subgraph "cluster_dc22fcbc-552a-48f2-84de-988c2a11440f" {
+        label = "(sink)";
+        "1dd5bb1e-a4e1-4e69-b45f-78ed97863a63" [shape=invhouse, label="SalesDetail2"];
+        "caacd0fb-e9d1-40d7-872d-6ca4be9e2c24" [shape=invhouse, label="ErrorRecord"];
+    }
+    subgraph "cluster_784f4151-c17a-41b2-a5fd-5f5ce8af5f02" {
+        label = "(source)";
+        "4870998c-ec8c-4fa2-8e18-ac478dfada1d" [shape=invhouse, label="SalesDetail"];
+        "1dd393e9-70cf-467c-85be-000b8c19bb6f" [shape=invhouse, label="ItemMaster"];
+    }
+    subgraph "cluster_e8a9ac50-f298-4845-a346-171ffcbd8817" {
+        label = "stage0001";
+        style = bold;
+        "a9d02910-397b-415f-ba6c-f2e331ed85b2" [shape=point];
+        "21e546fd-5d57-43a3-bee6-7a1ef2e2f06a" [shape=point];
+        "837c9663-44bc-479c-b089-07b67ad420a8" [shape=box, label="@Project\nproject"];
+        "0693b7c7-6943-462b-b46a-90e61d5a4af6" [shape=box, label="@MasterJoin\nJoinOperator.joinedData"];
+        "831787e0-a2c5-4bc6-a1ac-967fb2c62a8a" [shape=box, label="@Restructure\nrestructure"];
+    }
+    "4870998c-ec8c-4fa2-8e18-ac478dfada1d" -> "a9d02910-397b-415f-ba6c-f2e331ed85b2" [label="port>in"];
+    "1dd393e9-70cf-467c-85be-000b8c19bb6f" -> "21e546fd-5d57-43a3-bee6-7a1ef2e2f06a" [label="port>in"];
+    "21e546fd-5d57-43a3-bee6-7a1ef2e2f06a" -> "0693b7c7-6943-462b-b46a-90e61d5a4af6" [label="out>master"];
+    "a9d02910-397b-415f-ba6c-f2e331ed85b2" -> "0693b7c7-6943-462b-b46a-90e61d5a4af6" [label="out>detail"];
+    "831787e0-a2c5-4bc6-a1ac-967fb2c62a8a" -> "caacd0fb-e9d1-40d7-872d-6ca4be9e2c24" [label="out>port"];
+    "837c9663-44bc-479c-b089-07b67ad420a8" -> "1dd5bb1e-a4e1-4e69-b45f-78ed97863a63" [label="out>port"];
+    "0693b7c7-6943-462b-b46a-90e61d5a4af6" -> "837c9663-44bc-479c-b089-07b67ad420a8" [label="joined>in"];
+    "0693b7c7-6943-462b-b46a-90e61d5a4af6" -> "831787e0-a2c5-4bc6-a1ac-967fb2c62a8a" [label="missed>in"];
+}
